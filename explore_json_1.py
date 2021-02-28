@@ -8,7 +8,7 @@ eq_data = json.load(infile)
 json.dump(eq_data, outfile, indent=4)
 # Dump
 
-# print(eq_data["features"][0])
+print(eq_data["features"][0])
 # With this line of code, we get a dictionary back!
 
 # Version 2:
