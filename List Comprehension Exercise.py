@@ -48,7 +48,7 @@ for i in original_list:
 
 numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
 
-newlist = numbers.copy()
+newlist = [int(i) for i in numbers if i > 0]
 
 print(newlist)
 
@@ -59,14 +59,9 @@ print(newlist)
 sentence = "the quick brown fox jumps over the lazy dog"
 words = sentence.split()
 
-numbers = []
+a = [len(word) for word in words if word != "the"]
 
-for x in words:
-    word_len = len(x)
-    numbers = numbers.append(word_len)
-
-
-print(numbers)
+print(a)
 
 
 ## Given dictionary is consisted of vehicles and their weights in kilograms.
@@ -83,3 +78,12 @@ dict = {
     "Bicycle": 7,
     "Motorcycle": 110,
 }
+
+# Okay let's go:
+
+# "for x in dict" iterates through KEYS
+# "if dict[x]" asks for the VALUE
+##x.upper() uppercases the key
+
+b = [x.upper() for x in dict if dict[x] < 5000]
+print(b)
