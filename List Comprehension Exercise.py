@@ -59,8 +59,11 @@ print(newlist)
 sentence = "the quick brown fox jumps over the lazy dog"
 words = sentence.split()
 
-for word in words:
-    word_len = len(word)
+numbers = []
+
+for x in words:
+    word_len = len(x)
+    numbers = numbers.append(word_len)
 
 
 print(numbers)
