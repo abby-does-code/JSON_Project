@@ -8,41 +8,40 @@ fires_data = json.load(infile)
 json.dump(fires_data, outfile, indent=4)
 # Dump
 
-# print(fires_data["brightness"][:10])
+
+brightness_list = []
+
+for fire in fires_data:
+    bright_instance = fire["brightness"]
+    brightness_list.append(bright_instance)
 
 
-fires_over_450 = fires_data["brightness"]
-
-for element in infile:
-    if infile.brightness > 450:
-        fires_over_450.append(brightness)
+fires_over_450 = [i for i in brightness_list if i > 450]
 
 print(fires_over_450[:10])
 # Print out everything from first element to the tenth element
 # (0-9)
 
-"""
+
 from plotly.graph_objs import Scattergeo, Layout
 from plotly import offline
 
 data = [
     {
         "type": "scattergeo",
-        "lon": lons,
-        "lat": lats,
+        "brightness": brightness_list,
         "marker": {
-            "size": [5 * mag for mag in mags],
-            "color": mags,
+            "size": [5 * bright_instance for bright_instance in brightness_list],
+            "color": brightness_list,
             "colorscale": "Viridis",
             "reversescale": True,
-            "colorbar": {"title": "Magnitude"},
+            "colorbar": {"title": "Brightness"},
         },
     }
 ]
 
-my_layout = Layout(title="Global Earthquakes")
+my_layout = Layout(title="Global Fires with Brightness over 450")
 
 fig = {"data": data, "layout": my_layout}
 
-offline.plot(fig, filename="global_earthquakes.html")
-"""
+offline.plot(fig, filename="global_fire_brightness.html")
