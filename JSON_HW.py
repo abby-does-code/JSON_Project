@@ -1,5 +1,6 @@
 import json
 
+
 infile = open("US_fires_9_1.json", "r")
 outfile = open("readable_9_1.json", "w")
 
@@ -11,8 +12,8 @@ json.dump(fires_data, outfile, indent=4)
 
 brightness_list = []
 
-for fire in fires_data:
-    bright_instance = fire["brightness"]
+for x in fires_data:
+    bright_instance = x["brightness"]
     brightness_list.append(bright_instance)
 
 
